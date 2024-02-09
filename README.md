@@ -14,6 +14,8 @@ Passport is authentication middleware for Node.js. Extremely flexible and modula
 
 Unlike the traditional server-side sessions — which save a session ID in memory and return it to the client — this standard creates a self-contained and digitally signed token that is verified each time a request is made.
 
+## Usage
+
 ## ⚙️ Installation
 
 - Open CMD
@@ -32,16 +34,16 @@ Unlike the traditional server-side sessions — which save a session ID in memor
 
 - Create a .env file in the root directory
 
-  - Set MONGO_URI variable equal to the DB connection string
-  - Set up PORT variable
-  - Set up JWT_SECET variable
+  - Set up `MONGO_URI` variable equal to the DB connection string
+  - Set up `PORT` variable
+  - Set up `JWT_SECET` variable
  
 > [!NOTE]
-> JWT_SECRET is a string or buffer containing the secret key for verifying the token's signature. 
+> `JWT_SECRET` is a string or buffer containing the secret key for verifying the token's signature.
 
-## Usage
+> [!IMPORTANT]
+> In order to avoid port collisions, in the source code port value is `3000`
 
-Defining tasks in `node-taskmanager-api` is simple and intuitive.
 
 ## Task API Endpoints
 
@@ -49,9 +51,15 @@ Defining tasks in `node-taskmanager-api` is simple and intuitive.
 
 Call this endpoint to create a new task
 
+Possible responses
+
+
 **GET /task**
 
 Call this endpoint to get all tasks
+
+401 Unauthorized
+
 
 **GET /task/:id**
 
@@ -69,7 +77,27 @@ Call this endpoint to delete a task with a specific id
 
 **POST /register**
 
-Call this endpoint to sign up a new user 
+Call this endpoint to sign up a new user
+
+- Payload
+  - username (required)
+  - password (required)
+
+- Possible responses
+
+400 (Bad Request)
+
+`{
+    "msg": "Please provide username and password"
+}`
+
+`{
+    "user": "username",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWM2NGNlN2FkYWJlYjk4Njk4ZGZhMTQiLCJ1c2VybmFtZSI6InVzZXJuYW1lIiwiaWF0IjoxNzA3NDk0NjMyfQ.35BE1hUYA2lY3z2JOn90emY064_B3wphSl-ULW02pvc"
+}`
+
+Call this endpoint to log in a user. Use the authentication token in future calls to identify the user.
+
 
 **POST /login**
 
