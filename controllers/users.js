@@ -25,7 +25,10 @@ const login = async (req, res) => {
 // If a user is not found and no errors occur, then insertOne into the database with the username and password. As long as no errors occur there, call next to go to step 2, authenticating the new user, which you already wrote the logic for in your POST / login route.
 
 const register = async (req, res, next) => {
-    const { username } = req.body
+    const { username, password } = req.body
+    if (!username || !password) {
+        return res.status(400).json({msg: 'Please provide username and password'})
+    }
 
     try {
         let user = await User.findOne({ username })

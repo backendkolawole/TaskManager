@@ -2,6 +2,10 @@ const Task = require('../models/Tasks')
 const {createCustomError} = require('../errors/custom-error')
 
 const createTask = async (req, res) => {
+    const {name} = req.body
+    if (!name ) {
+        return res.status(400).json({msg: 'Please provide a name for this task'})
+    }
     const task = await Task.create(req.body)
     return res.status(201).json({ task })
 }
@@ -37,7 +41,7 @@ const deleteTask = async (req, res, next) => {
     if (!task) {
         return next(createCustomError(`No task with id: ${id}`, 404))
     }
-    return res.status(200).json({ task })
+    return res.status(200).json({  })
 }
 
 

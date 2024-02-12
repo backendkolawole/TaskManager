@@ -1,17 +1,16 @@
+require('dotenv').config()
+require('express-async-errors')
+require('./config/connect')
+require('./models/Users')
 const express = require('express')
 const app = express()
-require('express-async-errors');
-require('./config/connect')
 const tasks = require('./routes/tasks')
 const users = require('./routes/users')
-const passport = require('passport');
-const {connectDB} = require('./config/connect')
-const {notFound} = require('./middleware/not-found')
+const passport = require('passport')
+require('./config/passport')(passport)
+const { connectDB } = require('./config/connect')
+const { notFound } = require('./middleware/not-found')
 const { errorHandler } = require('./middleware/error-handler')
-require('dotenv').config()
-
-require('./models/Users');
-require('./config/passport')(passport);
 
 app.use(passport.initialize())
 

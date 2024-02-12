@@ -7,7 +7,7 @@ opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = process.env.JWT_SECRET
 // opts.algorithms =  ['RS256']
 
-console.log(opts)
+// console.log(opts)
 
 
 
