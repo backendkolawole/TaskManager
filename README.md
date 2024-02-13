@@ -28,15 +28,19 @@ Unlike the traditional server-side sessions — which save a session ID in memor
 
   `git clone git@github.com:backendkolawole/node-taskmanager-api.git`
 
+- Change the current directory
+
+  `cd node-taskmanager-api`
+  
 - Install packages
 
   `npm install`
 
 - Create a .env file in the root directory
 
-  - Set up `MONGO_URI` variable equal to the DB connection string
-  - Set up `PORT` variable
-  - Set up `JWT_SECET` variable
+  - Set up the `MONGO_URI` variable equal to the DB connection string
+  - Set up the `PORT` variable
+  - Set up the `JWT_SECET` variable
  
 > [!NOTE]
 > `JWT_SECRET` is a string or buffer containing the secret key for verifying the token's signature.
