@@ -46,7 +46,7 @@ Unlike the traditional server-side sessions — which save a session ID in memor
 
 ## Authentication Endpoints
 
-**POST /register**
+**POST api/v1/users/register**
 
 Call this endpoint to sign up a new user. Use the authentication token in future calls to identify the user.
 
@@ -78,7 +78,7 @@ Call this endpoint to sign up a new user. Use the authentication token in future
 }
 ```
 
-**POST /login**
+**POST api/v1/users/login**
 
 Call this endpoint to log a user in. Use the authentication token in future calls to identify the user.
 
@@ -120,7 +120,7 @@ Use the authentication token to identify the user.
 ` Authorization: Bearer 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`
 
 
-**POST /task**
+**POST api/v1/task**
 
 Call this endpoint to create a new task.
 
@@ -153,7 +153,7 @@ Unauthorized
 
 ```
 
-**GET /task**
+**GET api/v1/task**
 
 Call this endpoint to get all tasks
 
@@ -173,7 +173,7 @@ Unauthorized
 
 ```
 
-**GET /tasks/:id**
+**GET api/v1/tasks/:id**
 
 Call this endpoint to get a task with a specific id
 
@@ -206,7 +206,7 @@ Unauthorized
 ```
 
 
-**PATCH /task/:id**
+**PATCH api/v1/task/:id**
 
 Call this endpoint to update a task with a specific id
 
@@ -238,7 +238,7 @@ Unauthorized
 
 ```
 
-**DELETE /task/:id**
+**DELETE api/v1/task/:id**
 
 Call this endpoint to delete a task with a specific id
 
