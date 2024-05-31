@@ -10,7 +10,7 @@ The project has made an effort to build a very intuitive and easy-to-use RESTFul
 
 Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped into any Express-based web application.
 
-`passport-jwt` strategy lets you authenticate endpoints using a JSON web token. A JSON Web Token, popularly known as JWT, is an open standard that defines a compact way for securely sharing information between two parties: a client and a server. It is intended to be used to secure RESTful endpoints without sessions.
+`passport-jwt` strategy lets you authenticate endpoints using a JSON web token. A JSON Web Token, popularly known as JWT, is an open standard that defines a compact way to share information between a client and a server securely. It is intended to be used to secure RESTful endpoints without sessions.
 
 Unlike the traditional server-side sessions — which save a session ID in memory and return it to the client — this standard creates a self-contained and digitally signed token that is verified each time a request is made.
 
@@ -28,23 +28,30 @@ Unlike the traditional server-side sessions — which save a session ID in memor
 
   `git clone git@github.com:backendkolawole/node-taskmanager-api.git`
 
+- Change the current directory
+
+  `cd node-taskmanager-api`
+  
 - Install packages
 
   `npm install`
 
 - Create a .env file in the root directory
 
-  - Set up `MONGO_URI` variable equal to the DB connection string
-  - Set up `PORT` variable
-  - Set up `JWT_SECET` variable
+  - Set up the `MONGO_URI` variable equal to the DB connection string
+  - Set up the `PORT` variable
+  - Set up the `JWT_SECET` variable
  
 > [!NOTE]
 > `JWT_SECRET` is a string or buffer containing the secret key for verifying the token's signature.
 
 > [!IMPORTANT]
-> In order to avoid port collisions, in the source code, the port value is `3000`
+> To avoid port collisions, in the source code, the port value is `3000`
+
+
 
 ## Authentication Endpoints
+For the endpoints that follow, the base path is shown as `/api/v1/users`
 
 **POST api/v1/users/register**
 
@@ -112,6 +119,8 @@ Call this endpoint to log a user in. Use the authentication token in future call
 ```
 
 ## Task API Endpoints
+
+For the endpoints that follow, the base path is shown as `/api/v1`
 
 Use the authentication token to identify the user.
 
